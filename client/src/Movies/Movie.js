@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Movie = (props) => {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState();
   // const item = props.items.find(thing => thing.id === Number(props.match.params.id));
   // console.log(item)
-  useEffect((props) => {
+  useEffect(() => {
     const id = props.match.params.id;
     console.log(id);
     // change ^^^ that line and grab the id from the URL
@@ -46,13 +46,17 @@ const Movie = (props) => {
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
         </div>
-        <h3>Actors</h3>
-
+        <h3>Actors</h3> 
         {stars.map(star => (
+        <div key={star} className="movie-star">
+          {star}
+        </div>
+      ))}    
+        {/* {stars.map(star => (
           <div key={star} className="movie-star">
             {star}
           </div>
-        ))}
+        ))} */}
       </div>
       <div className="save-button">Save</div>
     </div>
